@@ -81,8 +81,6 @@ let interesJs = confirm("¿Le interesa Javascript?")
 datosPersona.interesPorJs = interesJs;
 
 
-
-
   console.log(datosPersona);
 }
 obtenerDatosDelUsuario();

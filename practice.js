@@ -50,17 +50,47 @@ function obtenerDatosDelUsuario() {
 
   /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
 
-  let nombre = "null";
-  let msjErrorNombre = "";
+//   let nombre = "null";
+//   let msjErrorNombre = "";
 
-  do {
-    nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
-    msjErrorNombre = "Ingrese un nombre valido";
-  } while (!isNaN(nombre) || nombre.length < 4);
+//   do {
+//     nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
+//     msjErrorNombre = "Ingrese un nombre valido";
+//   } while (!isNaN(nombre) || nombre.length < 4);
 
-  datosPersona.nombre = nombre;
+//   datosPersona.nombre = nombre;
 
 
+// Intento con query selector, preguntar
+const nombreUsuario = document.querySelector("#nombre");
+let nombre = "null";
+let msjErrorNombre = "";
+
+do {
+  nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
+  msjErrorNombre = "Ingrese un nombre valido";
+} while (!isNaN(nombre) || nombre.length < 4 || nombre === null);
+
+nombreUsuario.textContent = nombre;
+datosPersona.nombre = nombre;
+
+
+//   let edad = null;
+//   let inputAnioNacimiento = null;
+//   let msjErrorEdad = "";
+
+//   // Solicitar Año de nacimiento y calcular la edad
+//   do {
+//     inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
+//     edad = parseInt(inputAnioNacimiento);
+//     msjErrorEdad = "Error, ingresa un año valido\n";
+//   } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
+
+//   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
+
+// Intento con query selector, preguntar
+
+const edadUsuario = document.querySelector("#edad");
   let edad = null;
   let inputAnioNacimiento = null;
   let msjErrorEdad = "";
@@ -70,9 +100,12 @@ function obtenerDatosDelUsuario() {
     inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
     edad = parseInt(inputAnioNacimiento);
     msjErrorEdad = "Error, ingresa un año valido\n";
-  } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
+  } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4 || inputAnioNacimiento === null);
 
+  edadUsuario.textContent = edad;
   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
+
+
 
   //Solicitar ciudad
 
@@ -120,7 +153,20 @@ function renderizarDatosUsuario() {
   // ◆ Ubica los datos del objeto en el <span> que corresponda.
 
   /* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+};
 
 function recorrerListadoYRenderizarTarjetas() {
   //     Desarrollar la función que recorra el listado y renderizar una especie de tarjeta con la
