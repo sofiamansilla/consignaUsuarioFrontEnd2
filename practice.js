@@ -50,93 +50,98 @@ function obtenerDatosDelUsuario() {
 
   /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
 
-//   let nombre = "null";
-//   let msjErrorNombre = "";
+  //   let nombre = "null";
+  //   let msjErrorNombre = "";
 
-//   do {
-//     nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
-//     msjErrorNombre = "Ingrese un nombre valido";
-//   } while (!isNaN(nombre) || nombre.length < 4);
+  //   do {
+  //     nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
+  //     msjErrorNombre = "Ingrese un nombre valido";
+  //   } while (!isNaN(nombre) || nombre.length < 4);
 
-//   datosPersona.nombre = nombre;
+  //   datosPersona.nombre = nombre;
 
+  // Intento con query selector, preguntar
+  const nombreUsuario = document.querySelector("#nombre");
+  let nombre = "null";
+  let msjErrorNombre = "";
 
-// Intento con query selector, preguntar
-const nombreUsuario = document.querySelector("#nombre");
-let nombre = "null";
-let msjErrorNombre = "";
+  do {
+    nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
+    msjErrorNombre = "Ingrese un nombre valido";
+  } while (!isNaN(nombre) || nombre.length < 4 || nombre === null);
 
-do {
-  nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
-  msjErrorNombre = "Ingrese un nombre valido";
-} while (!isNaN(nombre) || nombre.length < 4 || nombre === null);
+  nombreUsuario.textContent = nombre;
+  datosPersona.nombre = nombre;
 
-nombreUsuario.textContent = nombre;
-datosPersona.nombre = nombre;
+  //   let edad = null;
+  //   let inputAnioNacimiento = null;
+  //   let msjErrorEdad = "";
 
+  //   // Solicitar Año de nacimiento y calcular la edad
+  //   do {
+  //     inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
+  //     edad = parseInt(inputAnioNacimiento);
+  //     msjErrorEdad = "Error, ingresa un año valido\n";
+  //   } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
 
-//   let edad = null;
-//   let inputAnioNacimiento = null;
-//   let msjErrorEdad = "";
+  //   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
-//   // Solicitar Año de nacimiento y calcular la edad
-//   do {
-//     inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
-//     edad = parseInt(inputAnioNacimiento);
-//     msjErrorEdad = "Error, ingresa un año valido\n";
-//   } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
+  // Intento con query selector, preguntar
 
-//   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
-
-// Intento con query selector, preguntar
-
-const edadUsuario = document.querySelector("#edad");
+  const edadUsuario = document.querySelector("#edad");
   let edad = null;
   let inputAnioNacimiento = null;
   let msjErrorEdad = "";
 
   // Solicitar Año de nacimiento y calcular la edad
   do {
-    inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
+    inputAnioNacimiento = prompt(
+      msjErrorEdad + "Ingrese su año de nacimiento: "
+    );
     edad = parseInt(inputAnioNacimiento);
     msjErrorEdad = "Error, ingresa un año valido\n";
-  } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4 || inputAnioNacimiento === null);
+  } while (
+    isNaN(inputAnioNacimiento) ||
+    inputAnioNacimiento.length !== 4 ||
+    inputAnioNacimiento === null
+  );
 
   edadUsuario.textContent = edad;
   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
-
-
   //Solicitar ciudad
 
+  //   let ciudad = "null";
+  //   let msjErrorCiudad = "";
+
+  //   do {
+  //     ciudad = prompt(msjErrorCiudad + "\nIngrese su ciudad: ");
+  //     msjErrorCiudad = "Ingrese una ciudad valida";
+  //   } while (!isNaN(ciudad) || ciudad.length < 3);
+
+  //   datosPersona.ciudad = ciudad;
+
+  //Intento con queryselector
+
+  const ciudadUsuario = document.querySelector("#ciudad");
   let ciudad = "null";
   let msjErrorCiudad = "";
 
   do {
     ciudad = prompt(msjErrorCiudad + "\nIngrese su ciudad: ");
     msjErrorCiudad = "Ingrese una ciudad valida";
-  } while (!isNaN(ciudad) || ciudad.length < 3);
+  } while (!isNaN(ciudad) || ciudad.length < 3 || ciudad === null);
 
+  ciudadUsuario.textContent = ciudad;
   datosPersona.ciudad = ciudad;
 
-// Interes por JavaScript
+  // Interes por JavaScript
 
-let interesJs = confirm("¿Le interesa Javascript?")
-datosPersona.interesPorJs = interesJs;
-
-
+  let interesJs = confirm("¿Le interesa Javascript?");
+  datosPersona.interesPorJs = interesJs;
 
   console.log(datosPersona);
-
-
-
-
-
-
-
-  
-
-};
+}
 obtenerDatosDelUsuario();
 
 function renderizarDatosUsuario() {
@@ -153,20 +158,7 @@ function renderizarDatosUsuario() {
   // ◆ Ubica los datos del objeto en el <span> que corresponda.
 
   /* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-};
+}
 
 function recorrerListadoYRenderizarTarjetas() {
   //     Desarrollar la función que recorra el listado y renderizar una especie de tarjeta con la
