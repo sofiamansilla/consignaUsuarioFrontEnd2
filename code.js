@@ -60,7 +60,7 @@ function obtenerDatosDelUsuario() {
   do {
     inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
     edad = parseInt(inputAnioNacimiento);
-    msjErrorEdad = "Error, el valor debe ser mayor a cero y númerico\n";
+    msjErrorEdad = "Error, Ingresa un año valido\n";
   } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
 
   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
