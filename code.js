@@ -41,35 +41,33 @@ function obtenerDatosDelUsuario() {
   // Borrar luego: Pedir y validad nombre
 
   let nombre = "null";
-let msjErrorNombre = "";
+  let msjErrorNombre = "";
 
-do{
+  do {
     nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
     msjErrorNombre = "Ingrese un nombre valido";
-    } while(!isNaN(nombre) || nombre.length < 3);
+  } while (!isNaN(nombre) || nombre.length < 3);
 
-    datosPersona.nombre = nombre;
+  datosPersona.nombre = nombre;
 
-console.log(nombre);
+  console.log(nombre);
 
+  let edad = null;
+  let inputAnioNacimiento = null;
+  let msjErrorEdad = "";
 
-    let edad = null;
-    let inputAnioNacimiento = null;
-    let msjError = "";
-  
-    // Solicitar Año de nacimiento y calcular la edad
-    do {
-      inputAnioNacimiento = prompt(msjError + "Ingrese su año de nacimiento: ");
-      edad = parseInt(inputAnioNacimiento);
-      msjError = "Error, el valor debe ser mayor a cero y númerico\n";
-    } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
-  
-    datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento 
-    console.log(inputAnioNacimiento);
-  
-console.log(datosPersona);
+  // Solicitar Año de nacimiento y calcular la edad
+  do {
+    inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
+    edad = parseInt(inputAnioNacimiento);
+    msjErrorEdad = "Error, el valor debe ser mayor a cero y númerico\n";
+  } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
 
-};
+  datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
+  console.log(inputAnioNacimiento);
+
+  console.log(datosPersona);
+}
 obtenerDatosDelUsuario();
 
 function renderizarDatosUsuario() {
