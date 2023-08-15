@@ -50,7 +50,6 @@ function obtenerDatosDelUsuario() {
 
   datosPersona.nombre = nombre;
 
-  console.log(nombre);
 
   let edad = null;
   let inputAnioNacimiento = null;
@@ -64,7 +63,25 @@ function obtenerDatosDelUsuario() {
   } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
 
   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
-  console.log(inputAnioNacimiento);
+
+  // Solicitar ciudad
+  let ciudad = "null";
+  let msjErrorCiudad = "";
+
+  do {
+    ciudad = prompt(msjErrorCiudad + "\nIngrese su ciudad: ");
+    msjErrorCiudad = "Ingrese una ciudad valida";
+  } while (!isNaN(ciudad) || ciudad.length < 4);
+
+  datosPersona.ciudad = ciudad;
+
+// Interes por js
+
+let interesJs = confirm("¿Le interesa Javascript?")
+datosPersona.interesPorJs = interesJs;
+
+
+
 
   console.log(datosPersona);
 }
