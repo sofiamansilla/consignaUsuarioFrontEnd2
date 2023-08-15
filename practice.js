@@ -137,10 +137,19 @@ function obtenerDatosDelUsuario() {
 
   // Interes por JavaScript
 
-  let interesJs = confirm("¿Le interesa Javascript?");
-  datosPersona.interesPorJs = interesJs;
+//   let interesJs = confirm("¿Le interesa Javascript?");
+//   datosPersona.interesPorJs = interesJs;
 
-  console.log(datosPersona);
+//   console.log(datosPersona);
+
+// Intento con query selector
+const javaScriptInput = document.querySelector("#javascript");
+let interesJs = confirm("¿Le interesa Javascript?");
+datosPersona.interesPorJs = interesJs;
+
+javaScriptInput.textContent = interesJs;
+console.log(datosPersona);
+
 }
 obtenerDatosDelUsuario();
 
