@@ -36,17 +36,22 @@ cambiarTema.addEventListener("click", alternarColorTema);
 /* --------------------------- NO TOCAR HASTA ACÁ --------------------------- */
 
 function obtenerDatosDelUsuario() {
+
   /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
 
-  // Borrar luego: Pedir y validad nombre
 
-  let nombre = "null";
+  let nombre = null;
   let msjErrorNombre = "";
 
   do {
-    nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
-    msjErrorNombre = "Ingrese un nombre valido";
-  } while (!isNaN(nombre) || nombre.length < 3);
+    nombre = prompt(
+    msjErrorNombre + "Ingrese su nombre: ");
+    msjErrorNombre = "Ingrese un nombre valido\n";
+  } while (
+    !isNaN(nombre) || 
+    nombre.length < 4 || 
+    nombre == null
+    );
 
   datosPersona.nombre = nombre;
 
@@ -55,42 +60,59 @@ function obtenerDatosDelUsuario() {
   let inputAnioNacimiento = null;
   let msjErrorEdad = "";
 
-  // Solicitar Año de nacimiento y calcular la edad
   do {
-    inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
+    inputAnioNacimiento = prompt(
+      msjErrorEdad + "Ingrese su año de nacimiento: ");
     edad = parseInt(inputAnioNacimiento);
     msjErrorEdad = "Error, Ingresa un año valido\n";
-  } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
+  } while (
+    isNaN(inputAnioNacimiento) || 
+    inputAnioNacimiento.length !== 4 ||
+    inputAnioNacimiento === null
+    );
 
   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
-  // Solicitar ciudad
-  let ciudad = "null";
+
+  let ciudad = null;
   let msjErrorCiudad = "";
 
   do {
-    ciudad = prompt(msjErrorCiudad + "\nIngrese su ciudad: ");
+    ciudad = prompt(
+    msjErrorCiudad + "\nIngrese su ciudad: ");
     msjErrorCiudad = "Ingrese una ciudad valida";
-  } while (!isNaN(ciudad) || ciudad.length < 4);
+  } while (
+    !isNaN(ciudad) || 
+    ciudad.length < 4 ||
+    ciudad === null
+    );
 
   datosPersona.ciudad = ciudad;
 
-// Interes por js
-
-let interesJs = confirm("¿Le interesa Javascript?")
-datosPersona.interesPorJs = interesJs;
 
 
-  console.log(datosPersona);
-}
-obtenerDatosDelUsuario();
+  let interesJs = confirm("¿Le interesa Javascript? \n (OK para Sí, cancel para No");
+  datosPersona.interesPorJs = interesJs;
+
+};
+// console.log(datosPersona);
+// obtenerDatosDelUsuario();
 
 function renderizarDatosUsuario() {
   /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
   obtenerDatosDelUsuario();
   /* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
-}
 
+  const cardHeader = document.querySelector(".card-header");
+  cardHeader.innerHTML = `
+  <h3>Nombre: <span id="nombre">${datosPersona.nombre}</span></h3>
+  <h3>Edad: <span id="edad">${datosPersona.edad}</span></h3>
+  <h3>Ciudad: <span id="ciudad">${datosPersona.ciudad}</span></h3>
+  <h3>Interes en Javascript: <span id="javascript">${datosPersona.interesPorJs}</span></h3>`;
+
+
+};
+renderizarDatosUsuario();
 function recorrerListadoYRenderizarTarjetas() {
   /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
 }

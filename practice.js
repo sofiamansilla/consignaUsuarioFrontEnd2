@@ -61,16 +61,14 @@ function obtenerDatosDelUsuario() {
   //   datosPersona.nombre = nombre;
 
   // Intento con query selector, preguntar
-  const nombreUsuario = document.querySelector("#nombre");
-  let nombre = "null";
+  let nombre = null;
   let msjErrorNombre = "";
 
   do {
-    nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
-    msjErrorNombre = "Ingrese un nombre valido";
-  } while (!isNaN(nombre) || nombre.length < 4 || nombre === null);
+    nombre = prompt(msjErrorNombre + "Ingrese su nombre: ");
+    msjErrorNombre = "Ingrese un nombre valido\n";
+  } while (!isNaN(nombre) || nombre.length < 4 || nombre == null);
 
-  nombreUsuario.textContent = nombre;
   datosPersona.nombre = nombre;
 
   //   let edad = null;
@@ -87,8 +85,6 @@ function obtenerDatosDelUsuario() {
   //   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
   // Intento con query selector, preguntar
-
-  const edadUsuario = document.querySelector("#edad");
   let edad = null;
   let inputAnioNacimiento = null;
   let msjErrorEdad = "";
@@ -106,7 +102,6 @@ function obtenerDatosDelUsuario() {
     inputAnioNacimiento === null
   );
 
-  edadUsuario.textContent = edad;
   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
   //Solicitar ciudad
@@ -123,40 +118,38 @@ function obtenerDatosDelUsuario() {
 
   //Intento con queryselector
 
-  const ciudadUsuario = document.querySelector("#ciudad");
-  let ciudad = "null";
+  let ciudad = null;
   let msjErrorCiudad = "";
 
   do {
-    ciudad = prompt(msjErrorCiudad + "\nIngrese su ciudad: ");
-    msjErrorCiudad = "Ingrese una ciudad valida";
-  } while (!isNaN(ciudad) || ciudad.length < 3 || ciudad === null);
+    ciudad = prompt(msjErrorCiudad + "Ingrese su ciudad: ");
+    msjErrorCiudad = "Ingrese una ciudad valida\n";
+  } while (!isNaN(ciudad) || ciudad.length < 3 || ciudad == null);
 
-  ciudadUsuario.textContent = ciudad;
   datosPersona.ciudad = ciudad;
 
   // Interes por JavaScript
 
-//   let interesJs = confirm("¿Le interesa Javascript?");
-//   datosPersona.interesPorJs = interesJs;
+  //   let interesJs = confirm("¿Le interesa Javascript?");
+  //   datosPersona.interesPorJs = interesJs;
 
-//   console.log(datosPersona);
+  //   console.log(datosPersona);
 
-// Intento con query selector
-const javaScriptInput = document.querySelector("#javascript");
-let interesJs = confirm("¿Le interesa Javascript?");
-datosPersona.interesPorJs = interesJs;
+  // Intento con query selector
+  //const javaScriptInput = document.querySelector("#javascript");
+  let interesJs = confirm(
+    "¿Le interesa Javascript? \n (OK para Sí, cancel para No)"
+  );
+  datosPersona.interesPorJs = interesJs;
 
-javaScriptInput.textContent = interesJs;
-console.log(datosPersona);
-
+  //javaScriptInput.textContent = interesJs;
+  //console.log(datosPersona);
 }
-obtenerDatosDelUsuario();
 
 function renderizarDatosUsuario() {
   /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
+  //    const usuario = obtenerDatosDelUsuario();
   obtenerDatosDelUsuario();
-
   // Desarrollar la función para renderizar los datos del usuario, a partir de la información
   // recolectada en la función anterior y almacenada en el objeto datosPersona. Para ello,
   // utilizar los elementos HTML que se encuentran en el archivo index.html, modificando
@@ -167,7 +160,15 @@ function renderizarDatosUsuario() {
   // ◆ Ubica los datos del objeto en el <span> que corresponda.
 
   /* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
+
+  const cardHeader = document.querySelector(".card-header");
+  cardHeader.innerHTML = `
+  <h3>Nombre: <span id="nombre">${datosPersona.nombre}</span></h3>
+  <h3>Edad: <span id="edad">${datosPersona.edad}</span></h3>
+  <h3>Ciudad: <span id="ciudad">${datosPersona.ciudad}</span></h3>
+  <h3>Interes en Javascript: <span id="javascript">${datosPersona.javaScriptInput}</span></h3>`;
 }
+renderizarDatosUsuario();
 
 function recorrerListadoYRenderizarTarjetas() {
   //     Desarrollar la función que recorra el listado y renderizar una especie de tarjeta con la
