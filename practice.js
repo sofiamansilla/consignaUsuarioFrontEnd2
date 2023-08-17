@@ -147,6 +147,7 @@ function obtenerDatosDelUsuario() {
 }
 
 function renderizarDatosUsuario() {
+    
   /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
   //    const usuario = obtenerDatosDelUsuario();
   obtenerDatosDelUsuario();
@@ -161,8 +162,8 @@ function renderizarDatosUsuario() {
 
   /* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
 
-  const cardHeader = document.querySelector(".card-header");
-  cardHeader.innerHTML = `
+  const tarjetaPersona = document.querySelector(".card-header");
+  tarjetaPersona.innerHTML = `
   <h3>Nombre: <span id="nombre">${datosPersona.nombre}</span></h3>
   <h3>Edad: <span id="edad">${datosPersona.edad}</span></h3>
   <h3>Ciudad: <span id="ciudad">${datosPersona.ciudad}</span></h3>
@@ -171,6 +172,39 @@ function renderizarDatosUsuario() {
 renderizarDatosUsuario();
 
 function recorrerListadoYRenderizarTarjetas() {
+
+
+    const contenedorMaterias = document.getElementById('fila');
+    contenedorMaterias.innerHTML = null;
+    listado.forEach((materia) =>{
+
+      const caja = document.createElement('div');
+      caja.classList.add('caja');
+
+      const imagen = document.createElement('img');
+      imagen.src=materia.imgUrl;
+      imagen.alt=materia.lenguajes;
+
+      caja.appendChild(imagen);
+
+      const pLenguajes = document.createElement('p');
+      pLenguajes.classList.add('lenguajes');
+      pLenguajes.textContent = materia.lenguajes;
+
+      caja.appendChild(pLenguajes);
+
+      const pBimestre = document.createElement('p');
+      pBimestre.classList.add('bimestre');
+      pBimestre.textContent = `Materias del ${materia.bimestre}`;
+   
+      caja.appendChild(pBimestre);
+
+      contenedorMaterias.appendChild(caja);
+      console.log(contenedorMaterias);
+    });
+
+
+
   //     Desarrollar la función que recorra el listado y renderizar una especie de tarjeta con la
   // información de cada materia. Prestar atención, cada una de las clases CSS son
   // necesarias para conservar el diseño:
@@ -186,7 +220,9 @@ function recorrerListadoYRenderizarTarjetas() {
   // ◆ Cada ‘caja’ se debe inyectar dentro del contenedor que ya se encuentra
   // en el archivo index.html con el id 'fila'.
   /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
-}
+};
+
+recorrerListadoYRenderizarTarjetas();
 
 function alternarColorTema() {
   // Desarrollar la función que permita al botón de alternar tema funcionar correctamente
