@@ -115,7 +115,43 @@ function renderizarDatosUsuario() {
 renderizarDatosUsuario();
 function recorrerListadoYRenderizarTarjetas() {
   /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
-}
+
+  const contenedorMaterias = document.getElementById('fila');
+  contenedorMaterias.textContent = null;
+  listado.forEach((materia) =>{
+
+    const caja = document.createElement('div');
+    caja.classList.add('caja');
+
+    const imagen = document.createElement('img');
+    // imagen.src=materia.imgUrl;
+    // imagen.alt=materia.lenguajes;
+    imagen.setAttribute('src', materia.imgUrl);
+    imagen.setAttribute('alt', materia.lenguajes);
+
+    caja.appendChild(imagen);
+
+    const pLenguajes = document.createElement('p');
+    pLenguajes.classList.add('lenguajes');
+    pLenguajes.textContent = materia.lenguajes;
+
+    caja.appendChild(pLenguajes);
+
+    const pBimestre = document.createElement('p');
+    pBimestre.classList.add('bimestre');
+    pBimestre.textContent = `Materias del ${materia.bimestre}`;
+ 
+    caja.appendChild(pBimestre);
+
+    contenedorMaterias.appendChild(caja);
+    console.log(contenedorMaterias);
+
+    
+  });
+
+
+
+};
 
 function alternarColorTema() {
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */

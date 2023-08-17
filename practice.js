@@ -175,15 +175,17 @@ function recorrerListadoYRenderizarTarjetas() {
 
 
     const contenedorMaterias = document.getElementById('fila');
-    contenedorMaterias.innerHTML = null;
+    contenedorMaterias.textContent = null;
     listado.forEach((materia) =>{
 
       const caja = document.createElement('div');
       caja.classList.add('caja');
 
       const imagen = document.createElement('img');
-      imagen.src=materia.imgUrl;
-      imagen.alt=materia.lenguajes;
+      // imagen.src=materia.imgUrl;
+      // imagen.alt=materia.lenguajes;
+      imagen.setAttribute('src', materia.imgUrl);
+      imagen.setAttribute('alt', materia.lenguajes);
 
       caja.appendChild(imagen);
 
@@ -201,6 +203,8 @@ function recorrerListadoYRenderizarTarjetas() {
 
       contenedorMaterias.appendChild(caja);
       console.log(contenedorMaterias);
+
+      
     });
 
 
