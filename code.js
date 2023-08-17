@@ -93,7 +93,7 @@ function obtenerDatosDelUsuario() {
 
 
 
-  let interesJs = confirm("¿Le interesa Javascript? \n (OK para Sí, cancel para No)");
+  let interesJs = confirm("¿Tienes interés en Javascript?");
   datosPersona.interesPorJs = interesJs ? "Si" : "No";
 
 } else{
@@ -130,8 +130,6 @@ function recorrerListadoYRenderizarTarjetas() {
     caja.classList.add('caja');
 
     const imagen = document.createElement('img');
-    // imagen.src=materia.imgUrl;
-    // imagen.alt=materia.lenguajes;
     imagen.setAttribute('src', materia.imgUrl);
     imagen.setAttribute('alt', materia.lenguajes);
 

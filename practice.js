@@ -209,8 +209,6 @@ function recorrerListadoYRenderizarTarjetas() {
       caja.classList.add('caja');
 
       const imagen = document.createElement('img');
-      // imagen.src=materia.imgUrl;
-      // imagen.alt=materia.lenguajes;
       imagen.setAttribute('src', materia.imgUrl);
       imagen.setAttribute('alt', materia.lenguajes);
 
@@ -264,6 +262,29 @@ function alternarColorTema() {
   // ◆ El elemento ‘sitio’ es simplemente un contenedor que envuelve todo el
   // resto de los elementos visibles.
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
+
+// let cambiarTema = document.querySelector("#sitio");
+// cambiarTema.innerHTML = ``;
+
+
+
+//     if (confirm("Quieres cambiar a modo oscuro")) {
+//         sitio.classList.add("dark")
+//     } else {
+//         btnTema.innerText = "Cambiar a modo oscuro 🌜"
+//     }
+
+//     function cambiarTema() {
+//         sitio.classList.toggle("dark")
+//         if (sitio.classList.contains("dark")) {
+//             btnTema.textContent = "Cambiar a modo claro 🌞"
+//         } else {
+//             btnTema.innerText = "Cambiar a modo oscuro 🌜"
+//         }
+//     }
+
+//     btnTema.addEventListener('click', cambiarTema);
+
 }
 
 //   Finalmente, agregar un listener en nuestra página que nos permita captar el evento
@@ -275,3 +296,6 @@ function alternarColorTema() {
 // ◆ En este caso la tecla no debe alternar la visibilidad, solamente desocultar
 // por única vez.
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
+
+const textSobreMi = document.querySelector('#sobre-mi');
+textSobreMi.textContent = ("Hola soy yo");
