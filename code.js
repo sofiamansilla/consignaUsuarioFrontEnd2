@@ -39,6 +39,8 @@ function obtenerDatosDelUsuario() {
 
   /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
 
+  let confirmacionAcceso = confirm("¿Desea continuar para acceder a su portal?")
+  if (confirmacionAcceso) {
 
   let nombre = null;
   let msjErrorNombre = "";
@@ -91,8 +93,13 @@ function obtenerDatosDelUsuario() {
 
 
 
-  let interesJs = confirm("¿Le interesa Javascript? \n (OK para Sí, cancel para No");
+  let interesJs = confirm("¿Le interesa Javascript? \n (OK para Sí, cancel para No)");
   datosPersona.interesPorJs = interesJs;
+
+} else{
+  return alert("Hasta la próxima!");
+}
+
 
 };
 // console.log(datosPersona);

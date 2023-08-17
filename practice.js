@@ -36,6 +36,22 @@ cambiarTema.addEventListener("click", alternarColorTema);
 /* --------------------------- NO TOCAR HASTA ACÁ --------------------------- */
 
 function obtenerDatosDelUsuario() {
+
+  // let confirmacionAcceso = confirm("Desea acceder al portal?");
+  // if (confirmacionAcceso) {
+  //   obtenerDatosDelUsuario();
+  // } else{
+  //   return alert("Hasta la proxima");
+  // }
+
+  let confirmacionAcceso = confirm("¿Desea continuar para acceder a su portal?")
+  if (confirmacionAcceso) {
+  //   return obtenerDatosDelUsuario()
+  // } else{
+  //   return alert("Hasta la proxima");
+  // }
+
+
   // Desarrollar la función para consultar al usuario los siguientes datos:
   // ● nombre
   // ● año de nacimiento
@@ -144,6 +160,14 @@ function obtenerDatosDelUsuario() {
 
   //javaScriptInput.textContent = interesJs;
   //console.log(datosPersona);
+
+
+
+  } else{
+    return alert("Hasta la proxima");
+  }
+
+
 }
 
 function renderizarDatosUsuario() {
