@@ -94,7 +94,7 @@ function obtenerDatosDelUsuario() {
 
 
   let interesJs = confirm("¿Le interesa Javascript? \n (OK para Sí, cancel para No)");
-  datosPersona.interesPorJs = interesJs;
+  datosPersona.interesPorJs = interesJs ? "Si" : "No";
 
 } else{
   return alert("Hasta la próxima!");
@@ -102,8 +102,7 @@ function obtenerDatosDelUsuario() {
 
 
 };
-// console.log(datosPersona);
-// obtenerDatosDelUsuario();
+
 
 function renderizarDatosUsuario() {
   /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */

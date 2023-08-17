@@ -153,10 +153,13 @@ function obtenerDatosDelUsuario() {
 
   // Intento con query selector
   //const javaScriptInput = document.querySelector("#javascript");
+
+  
   let interesJs = confirm(
     "¿Le interesa Javascript? \n (OK para Sí, cancel para No)"
   );
-  datosPersona.interesPorJs = interesJs;
+  
+  datosPersona.interesPorJs = (interesJs ? "Si" : "No");
 
   //javaScriptInput.textContent = interesJs;
   //console.log(datosPersona);
@@ -164,7 +167,7 @@ function obtenerDatosDelUsuario() {
 
 
   } else{
-    return alert("Hasta la proxima");
+    return alert("Hasta la próxima");
   }
 
 
