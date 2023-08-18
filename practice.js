@@ -267,11 +267,7 @@ function alternarColorTema() {
 // window.addEventListener("keypress", function(){
 //   this.alert("1")
 // })
-document.addEventListener("keydown", function(e){
-  if (e.code == 'KeyF'){
-    alert("es la f")
-  }
-} )
+
 
 //   Finalmente, agregar un listener en nuestra página que nos permita captar el evento
 // de teclado cuando presionamos la tecla F.
@@ -283,5 +279,15 @@ document.addEventListener("keydown", function(e){
 // por única vez.
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
 
-const textSobreMi = document.querySelector('#sobre-mi');
-textSobreMi.textContent = ("Hola soy yo");
+
+const sobreMi = document.getElementById("sobre-mi");
+
+document.addEventListener("keydown", function(e) {
+    // Verificar si la tecla presionada es la tecla 'F' (código de tecla 70)
+    if (e.code == 'KeyF') {
+      sobreMi.classList.remove("oculto");
+    }
+  });
+
+// const textSobreMi = document.querySelector('#sobre-mi');
+// textSobreMi.textContent = ("Hola soy yo");
