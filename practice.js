@@ -256,40 +256,22 @@ recorrerListadoYRenderizarTarjetas();
 
 function alternarColorTema() {
 
-
-const sitio = document.querySelector("#sitio");
-
-sitio.classList.toggle("dark");
-
-
   
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
-
-// let cambiarTema = document.querySelector("#sitio");
-// cambiarTema.innerHTML = ``;
-
-
-
-//     if (confirm("Quieres cambiar a modo oscuro")) {
-//         sitio.classList.add("dark")
-//     } else {
-//         btnTema.innerText = "Cambiar a modo oscuro 🌜"
-//     }
-
-//     function cambiarTema() {
-//         sitio.classList.toggle("dark")
-//         if (sitio.classList.contains("dark")) {
-//             btnTema.textContent = "Cambiar a modo claro 🌞"
-//         } else {
-//             btnTema.innerText = "Cambiar a modo oscuro 🌜"
-//         }
-//     }
-
-//     btnTema.addEventListener('click', cambiarTema);
+  document.querySelector("#sitio").classList.toggle("dark");
+  
 
 }
-alternarColorTema();
+//alternarColorTema();
 
+// window.addEventListener("keypress", function(){
+//   this.alert("1")
+// })
+document.addEventListener("keydown", function(e){
+  if (e.code == 'KeyF'){
+    alert("es la f")
+  }
+} )
 
 //   Finalmente, agregar un listener en nuestra página que nos permita captar el evento
 // de teclado cuando presionamos la tecla F.
