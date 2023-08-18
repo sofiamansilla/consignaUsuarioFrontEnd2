@@ -289,5 +289,7 @@ document.addEventListener("keydown", function(e) {
     }
   });
 
-// const textSobreMi = document.querySelector('#sobre-mi');
-// textSobreMi.textContent = ("Hola soy yo");
+const textSobreMi = document.querySelector('#sobre-mi');
+
+textSobreMi.textContent = `Soy ${datosPersona.nombre}, estudiante de Digital House y ${datosPersona.interesPorJs} tengo interés en Javascript}`;
+
