@@ -35,6 +35,7 @@ materiasBtn.addEventListener("click", recorrerListadoYRenderizarTarjetas);
 cambiarTema.addEventListener("click", alternarColorTema);
 /* --------------------------- NO TOCAR HASTA ACÁ --------------------------- */
 
+
 function obtenerDatosDelUsuario() {
 
   // let confirmacionAcceso = confirm("Desea acceder al portal?");
@@ -254,13 +255,14 @@ function recorrerListadoYRenderizarTarjetas() {
 recorrerListadoYRenderizarTarjetas();
 
 function alternarColorTema() {
-  // Desarrollar la función que permita al botón de alternar tema funcionar correctamente
-  // cada vez que se haga click.
-  // 1. Utilizar el elemento con el id ‘sitio’ como nodo de referencia.
-  // 2. Implementar en el elemento la clase ‘dark’ ya creada en el CSS.
-  // ➔ Tips
-  // ◆ El elemento ‘sitio’ es simplemente un contenedor que envuelve todo el
-  // resto de los elementos visibles.
+
+
+const sitio = document.querySelector("#sitio");
+
+sitio.classList.toggle("dark");
+
+
+  
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
 
 // let cambiarTema = document.querySelector("#sitio");
@@ -286,6 +288,8 @@ function alternarColorTema() {
 //     btnTema.addEventListener('click', cambiarTema);
 
 }
+alternarColorTema();
+
 
 //   Finalmente, agregar un listener en nuestra página que nos permita captar el evento
 // de teclado cuando presionamos la tecla F.

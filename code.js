@@ -159,6 +159,11 @@ function recorrerListadoYRenderizarTarjetas() {
 
 function alternarColorTema() {
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
-}
+
+  const sitio = document.querySelector("#sitio");
+
+  sitio.classList.toggle("dark");
+  
+};
 
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
