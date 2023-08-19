@@ -1,4 +1,6 @@
-/* --------------------------- NO TOCAR DESDE ACÁ --------------------------- */
+/** Función que solicita vía prompt datos al usuario, muestra información en pantalla y renderiza tarjetas, simulando un entorno de portal estudiantil, incluye cambio a tema oscurp */
+
+/**Objeto con los datos del usuario */
 let datosPersona = {
   nombre: "",
   edad: 0,
@@ -6,8 +8,8 @@ let datosPersona = {
   interesPorJs: "",
 };
 
-const listado = [
-  {
+/**Listado de materias del objeto */
+const listado = [{
     imgUrl: "https://huguidugui.files.wordpress.com/2015/03/html1.png",
     lenguajes: "HTML y CSS",
     bimestre: "1er bimestre",
@@ -18,27 +20,28 @@ const listado = [
     bimestre: "2do bimestre",
   },
   {
-    imgUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png",
+    imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png",
     lenguajes: "React JS",
     bimestre: "3er bimestre",
   },
 ];
 
+/**Querys y eventListener */
 const profileBtn = document.querySelector("#completar-perfil");
 const materiasBtn = document.querySelector("#obtener-materias");
 const verMasBtn = document.querySelector("#ver-mas");
-const cambiarTema = document.querySelector("#cambiar-tema");
+const cambiarTema = document.querySelector('#cambiar-tema');
 
 profileBtn.addEventListener("click", renderizarDatosUsuario);
 materiasBtn.addEventListener("click", recorrerListadoYRenderizarTarjetas);
 cambiarTema.addEventListener("click", alternarColorTema);
-/* --------------------------- NO TOCAR HASTA ACÁ --------------------------- */
 
+
+
+/**Función que solicita datos al usuario: nombre, año de nacimiento (calcula la edad), ciudad y si tiene interés en JavaScript */
 function obtenerDatosDelUsuario() {
-  /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
 
-
+    /**Solicitud y validación de nombre */
     let nombre = null;
     let msjErrorNombre = "";
 
@@ -55,7 +58,7 @@ function obtenerDatosDelUsuario() {
     datosPersona.nombre = nombre;
 
 
-
+    /**Solicitud y validación de anio de nacimiento */
     let edad = null;
     let inputAnioNacimiento = null;
     let msjErrorEdad = "";
@@ -74,7 +77,7 @@ function obtenerDatosDelUsuario() {
 
     datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
-
+    /**Solicitud y validación de ciudad */
 
     let ciudad = null;
     let msjErrorCiudad = "";
@@ -90,75 +93,82 @@ function obtenerDatosDelUsuario() {
 
     datosPersona.ciudad = ciudad;
 
-
+    /**Solicitud y validación de interés por JS */
 
     let interesJs = confirm(
       "¿Tienes interés en Javascript?");
     
       datosPersona.interesPorJs = interesJs ? "Si" : "No";
-  };
+}; 
 
-  
+
+/**Función para renderizar los datos de usuario y sean agregados a la card de pantalla */
 function renderizarDatosUsuario() {
-  /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
-  obtenerDatosDelUsuario();
-  /* --------------- PUNTO 2: Escribe tu codigo a partir de aqui --------------- */
 
+  /**Llamando a los datos de usuario */
+  obtenerDatosDelUsuario();
+
+  /**Se incluye al card de HTML los datos obtenidos del usuario */
   const cardHeader = document.querySelector(".card-header");
   cardHeader.innerHTML = `
   <h3>Nombre: <span id="nombre">${datosPersona.nombre}</span></h3>
   <h3>Edad: <span id="edad">${datosPersona.edad}</span></h3>
   <h3>Ciudad: <span id="ciudad">${datosPersona.ciudad}</span></h3>
   <h3>Interes en Javascript: <span id="javascript">${datosPersona.interesPorJs}</span></h3>`;
-};
-// renderizarDatosUsuario();
 
+};
+
+/**Función que crea tarjetas para mostrar las materias del objeto y renderización. Se asigna variable para btnMateria, asi el renderizado solo se ejecuta una vez */
 let btnMateria = false;
-
 function recorrerListadoYRenderizarTarjetas() {
-  /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
-if(btnMateria == true){
-  return;
+
+  
+  /**Condicional para renderizar solo una vez */
+  if(btnMateria == true){
+    return;
+  };
+
+    /**Contenedor general para crear las cards, se asignan textos e imagenes */
+    const contenedorMaterias = document.getElementById("fila");
+    contenedorMaterias.textContent = null;
+    listado.forEach((materia) => {
+  
+      const caja = document.createElement("div");
+      caja.classList.add("caja");
+  
+      const imagen = document.createElement("img");
+      imagen.setAttribute("src", materia.imgUrl);
+      imagen.setAttribute("alt", materia.lenguajes);
+  
+      caja.appendChild(imagen);
+  
+      const pLenguajes = document.createElement("p");
+      pLenguajes.classList.add("lenguajes");
+      pLenguajes.textContent = materia.lenguajes;
+  
+      caja.appendChild(pLenguajes);
+  
+      const pBimestre = document.createElement("p");
+      pBimestre.classList.add("bimestre");
+      pBimestre.textContent = `Materias del ${materia.bimestre}`;
+  
+      caja.appendChild(pBimestre);
+  
+      contenedorMaterias.appendChild(caja);
+      console.log(contenedorMaterias);
+  
+    });
+
 };
-  const contenedorMaterias = document.getElementById("fila");
-  contenedorMaterias.textContent = null;
-  listado.forEach((materia) => {
 
-    const caja = document.createElement("div");
-    caja.classList.add("caja");
-
-    const imagen = document.createElement("img");
-    imagen.setAttribute("src", materia.imgUrl);
-    imagen.setAttribute("alt", materia.lenguajes);
-
-    caja.appendChild(imagen);
-
-    const pLenguajes = document.createElement("p");
-    pLenguajes.classList.add("lenguajes");
-    pLenguajes.textContent = materia.lenguajes;
-
-    caja.appendChild(pLenguajes);
-
-    const pBimestre = document.createElement("p");
-    pBimestre.classList.add("bimestre");
-    pBimestre.textContent = `Materias del ${materia.bimestre}`;
-
-    caja.appendChild(pBimestre);
-
-    contenedorMaterias.appendChild(caja);
-    console.log(contenedorMaterias);
-
-  });
-};
-
+/**Función para cambiar tema claro-oscuro a través de un botón */
 function alternarColorTema() {
-  /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
-
+ 
   document.querySelector("#sitio").classList.toggle("dark");
+
 };
 
-/* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
-
+/**Se crea un listener con keydown para que, al momento de presional la tecla F, se despliegue el texto "sobre mi", además, se modifica el lorem ipsum por un textcontent */
 const sobreMi = document.getElementById("sobre-mi");
 
 document.addEventListener("keydown", function (e) {
@@ -174,4 +184,4 @@ Soy
 ${datosPersona.nombre}
 , estudiante de Digital House y 
 ${datosPersona.interesPorJs} 
-tengo interés en Javascript`;
+tengo interés en Javascript}`;
