@@ -38,19 +38,23 @@ cambiarTema.addEventListener("click", alternarColorTema);
 function obtenerDatosDelUsuario() {
   /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
 
-  let confirmacionAcceso = confirm(
-    "¿Desea continuar para acceder a su portal?"
-  );
-  if (confirmacionAcceso) {
+
     let nombre = null;
     let msjErrorNombre = "";
 
     do {
-      nombre = prompt(msjErrorNombre + "Ingrese su nombre: ");
-      msjErrorNombre = "Ingrese un nombre valido\n";
-    } while (!isNaN(nombre) || nombre.length < 4 || nombre == null);
+      nombre = prompt(
+        msjErrorNombre + "Ingrese su nombre: "
+        );
+        msjErrorNombre = "Ingrese un nombre valido\n";
+    } while (
+      !isNaN(nombre) || 
+      nombre.length < 4 || 
+      nombre == null);
 
     datosPersona.nombre = nombre;
+
+
 
     let edad = null;
     let inputAnioNacimiento = null;
@@ -58,7 +62,7 @@ function obtenerDatosDelUsuario() {
 
     do {
       inputAnioNacimiento = prompt(
-        msjErrorEdad + "Ingrese su año de nacimiento: "
+      msjErrorEdad + "Ingrese su año de nacimiento: "
       );
       edad = parseInt(inputAnioNacimiento);
       msjErrorEdad = "Error, Ingresa un año valido\n";
@@ -70,23 +74,31 @@ function obtenerDatosDelUsuario() {
 
     datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
+
+
     let ciudad = null;
     let msjErrorCiudad = "";
 
     do {
-      ciudad = prompt(msjErrorCiudad + "\nIngrese su ciudad: ");
+      ciudad = prompt(
+      msjErrorCiudad + "\nIngrese su ciudad: ");
       msjErrorCiudad = "Ingrese una ciudad valida";
-    } while (!isNaN(ciudad) || ciudad.length < 4 || ciudad === null);
+    } while (!isNaN(ciudad) || 
+    ciudad.length < 4 || 
+    ciudad === null
+    );
 
     datosPersona.ciudad = ciudad;
 
-    let interesJs = confirm("¿Tienes interés en Javascript?");
-    datosPersona.interesPorJs = interesJs ? "Si" : "No";
-  } else {
-    return alert("Hasta la próxima!");
-  }
-}
 
+
+    let interesJs = confirm(
+      "¿Tienes interés en Javascript?");
+    
+      datosPersona.interesPorJs = interesJs ? "Si" : "No";
+  };
+
+  
 function renderizarDatosUsuario() {
   /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
   obtenerDatosDelUsuario();
@@ -98,14 +110,20 @@ function renderizarDatosUsuario() {
   <h3>Edad: <span id="edad">${datosPersona.edad}</span></h3>
   <h3>Ciudad: <span id="ciudad">${datosPersona.ciudad}</span></h3>
   <h3>Interes en Javascript: <span id="javascript">${datosPersona.interesPorJs}</span></h3>`;
-}
-renderizarDatosUsuario();
+};
+// renderizarDatosUsuario();
+
+let btnMateria = false;
+
 function recorrerListadoYRenderizarTarjetas() {
   /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
-
+if(btnMateria == true){
+  return;
+};
   const contenedorMaterias = document.getElementById("fila");
   contenedorMaterias.textContent = null;
   listado.forEach((materia) => {
+
     const caja = document.createElement("div");
     caja.classList.add("caja");
 
@@ -129,14 +147,15 @@ function recorrerListadoYRenderizarTarjetas() {
 
     contenedorMaterias.appendChild(caja);
     console.log(contenedorMaterias);
+
   });
-}
+};
 
 function alternarColorTema() {
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
 
   document.querySelector("#sitio").classList.toggle("dark");
-}
+};
 
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
 
@@ -145,9 +164,14 @@ const sobreMi = document.getElementById("sobre-mi");
 document.addEventListener("keydown", function (e) {
   if (e.code == "KeyF") {
     sobreMi.classList.remove("oculto");
-  }
+  };
 });
 
 const textSobreMi = document.querySelector('#sobre-mi');
 
-textSobreMi.textContent = `Soy ${datosPersona.nombre}, estudiante de Digital House y ${datosPersona.interesPorJs} tengo interés en Javascript}`;
+textSobreMi.textContent = `
+Soy 
+${datosPersona.nombre}
+, estudiante de Digital House y 
+${datosPersona.interesPorJs} 
+tengo interés en Javascript`;

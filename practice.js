@@ -35,9 +35,7 @@ materiasBtn.addEventListener("click", recorrerListadoYRenderizarTarjetas);
 cambiarTema.addEventListener("click", alternarColorTema);
 /* --------------------------- NO TOCAR HASTA ACÁ --------------------------- */
 
-
 function obtenerDatosDelUsuario() {
-
   // let confirmacionAcceso = confirm("Desea acceder al portal?");
   // if (confirmacionAcceso) {
   //   obtenerDatosDelUsuario();
@@ -45,137 +43,134 @@ function obtenerDatosDelUsuario() {
   //   return alert("Hasta la proxima");
   // }
 
-  let confirmacionAcceso = confirm("¿Desea continuar para acceder a su portal?")
+  let confirmacionAcceso = confirm(
+    "¿Desea continuar para acceder a su portal?"
+  );
   if (confirmacionAcceso) {
-  //   return obtenerDatosDelUsuario()
-  // } else{
-  //   return alert("Hasta la proxima");
-  // }
+    //   return obtenerDatosDelUsuario()
+    // } else{
+    //   return alert("Hasta la proxima");
+    // }
 
+    // Desarrollar la función para consultar al usuario los siguientes datos:
+    // ● nombre
+    // ● año de nacimiento
+    // ● ciudad
+    // ● si le interesa Javascript
+    // Los datos obtenidos deberán ser almacenados dentro del objeto datosPersona.
+    // ➔ Tips
+    // ◆ La propiedad edad debe ser calculada, algo tan simple como restar el
+    // año actual menos el año de nacimiento.
+    // ◆ No se preocupen si aún no se cumplió el mes exacto. Tampoco es
+    // necesario usar el objeto Date.
 
-  // Desarrollar la función para consultar al usuario los siguientes datos:
-  // ● nombre
-  // ● año de nacimiento
-  // ● ciudad
-  // ● si le interesa Javascript
-  // Los datos obtenidos deberán ser almacenados dentro del objeto datosPersona.
-  // ➔ Tips
-  // ◆ La propiedad edad debe ser calculada, algo tan simple como restar el
-  // año actual menos el año de nacimiento.
-  // ◆ No se preocupen si aún no se cumplió el mes exacto. Tampoco es
-  // necesario usar el objeto Date.
+    /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
 
-  /* --------------- PUNTO 1: Escribe tu codigo a partir de aqui --------------- */
+    //   let nombre = "null";
+    //   let msjErrorNombre = "";
 
-  //   let nombre = "null";
-  //   let msjErrorNombre = "";
+    //   do {
+    //     nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
+    //     msjErrorNombre = "Ingrese un nombre valido";
+    //   } while (!isNaN(nombre) || nombre.length < 4);
 
-  //   do {
-  //     nombre = prompt(msjErrorNombre + "\nIngrese su nombre: ");
-  //     msjErrorNombre = "Ingrese un nombre valido";
-  //   } while (!isNaN(nombre) || nombre.length < 4);
+    //   datosPersona.nombre = nombre;
 
-  //   datosPersona.nombre = nombre;
+    // Intento con query selector, preguntar
+    // let nombre = null;
+    // let msjErrorNombre = "";
 
-  // Intento con query selector, preguntar
-  let nombre = null;
-  let msjErrorNombre = "";
+    let nombre = null;
+    let msjErrorNombre = null;
 
-  do {
-    nombre = prompt(msjErrorNombre + "Ingrese su nombre: ");
-    msjErrorNombre = "Ingrese un nombre valido\n";
-  } while (!isNaN(nombre) || nombre.length < 4 || nombre == null);
+    do {
+      nombre = prompt(msjErrorNombre + "Ingrese su nombre: ");
+      msjErrorNombre = "Ingrese un nombre valido\n";
+    } while (!isNaN(nombre) || nombre.length < 4 || nombre == null);
 
-  datosPersona.nombre = nombre;
+    datosPersona.nombre = nombre;
 
-  //   let edad = null;
-  //   let inputAnioNacimiento = null;
-  //   let msjErrorEdad = "";
+    //   let edad = null;
+    //   let inputAnioNacimiento = null;
+    //   let msjErrorEdad = "";
 
-  //   // Solicitar Año de nacimiento y calcular la edad
-  //   do {
-  //     inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
-  //     edad = parseInt(inputAnioNacimiento);
-  //     msjErrorEdad = "Error, ingresa un año valido\n";
-  //   } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
+    //   // Solicitar Año de nacimiento y calcular la edad
+    //   do {
+    //     inputAnioNacimiento = prompt(msjErrorEdad + "Ingrese su año de nacimiento: ");
+    //     edad = parseInt(inputAnioNacimiento);
+    //     msjErrorEdad = "Error, ingresa un año valido\n";
+    //   } while (isNaN(inputAnioNacimiento) || inputAnioNacimiento.length !== 4);
 
-  //   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
+    //   datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
-  // Intento con query selector, preguntar
-  let edad = null;
-  let inputAnioNacimiento = null;
-  let msjErrorEdad = "";
+    // Intento con query selector, preguntar
+    let edad = null;
+    let inputAnioNacimiento = null;
+    let msjErrorEdad = "";
 
-  // Solicitar Año de nacimiento y calcular la edad
-  do {
-    inputAnioNacimiento = prompt(
-      msjErrorEdad + "Ingrese su año de nacimiento: "
+    // Solicitar Año de nacimiento y calcular la edad
+    do {
+      inputAnioNacimiento = prompt(
+        msjErrorEdad + "Ingrese su año de nacimiento: "
+      );
+      edad = parseInt(inputAnioNacimiento);
+      msjErrorEdad = "Error, ingresa un año valido\n";
+    } while (
+      isNaN(inputAnioNacimiento) ||
+      inputAnioNacimiento.length !== 4 ||
+      inputAnioNacimiento === null
     );
-    edad = parseInt(inputAnioNacimiento);
-    msjErrorEdad = "Error, ingresa un año valido\n";
-  } while (
-    isNaN(inputAnioNacimiento) ||
-    inputAnioNacimiento.length !== 4 ||
-    inputAnioNacimiento === null
-  );
 
-  datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
+    datosPersona.edad = new Date().getFullYear() - inputAnioNacimiento;
 
-  //Solicitar ciudad
+    //Solicitar ciudad
 
-  //   let ciudad = "null";
-  //   let msjErrorCiudad = "";
+    //   let ciudad = "null";
+    //   let msjErrorCiudad = "";
 
-  //   do {
-  //     ciudad = prompt(msjErrorCiudad + "\nIngrese su ciudad: ");
-  //     msjErrorCiudad = "Ingrese una ciudad valida";
-  //   } while (!isNaN(ciudad) || ciudad.length < 3);
+    //   do {
+    //     ciudad = prompt(msjErrorCiudad + "\nIngrese su ciudad: ");
+    //     msjErrorCiudad = "Ingrese una ciudad valida";
+    //   } while (!isNaN(ciudad) || ciudad.length < 3);
 
-  //   datosPersona.ciudad = ciudad;
+    //   datosPersona.ciudad = ciudad;
 
-  //Intento con queryselector
+    //Intento con queryselector
 
-  let ciudad = null;
-  let msjErrorCiudad = "";
+    let ciudad = null;
+    let msjErrorCiudad = "";
 
-  do {
-    ciudad = prompt(msjErrorCiudad + "Ingrese su ciudad: ");
-    msjErrorCiudad = "Ingrese una ciudad valida\n";
-  } while (!isNaN(ciudad) || ciudad.length < 3 || ciudad == null);
+    do {
+      ciudad = prompt(msjErrorCiudad + "Ingrese su ciudad: ");
+      msjErrorCiudad = "Ingrese una ciudad valida\n";
+    } while (!isNaN(ciudad) || ciudad.length < 3 || ciudad == null);
 
-  datosPersona.ciudad = ciudad;
+    datosPersona.ciudad = ciudad;
 
-  // Interes por JavaScript
+    // Interes por JavaScript
 
-  //   let interesJs = confirm("¿Le interesa Javascript?");
-  //   datosPersona.interesPorJs = interesJs;
+    //   let interesJs = confirm("¿Le interesa Javascript?");
+    //   datosPersona.interesPorJs = interesJs;
 
-  //   console.log(datosPersona);
+    //   console.log(datosPersona);
 
-  // Intento con query selector
-  //const javaScriptInput = document.querySelector("#javascript");
+    // Intento con query selector
+    //const javaScriptInput = document.querySelector("#javascript");
 
-  
-  let interesJs = confirm(
-    "¿Le interesa Javascript? \n (OK para Sí, cancel para No)"
-  );
-  
-  datosPersona.interesPorJs = (interesJs ? "Si" : "No");
+    let interesJs = confirm(
+      "¿Le interesa Javascript? \n (OK para Sí, cancel para No)"
+    );
 
-  //javaScriptInput.textContent = interesJs;
-  //console.log(datosPersona);
+    datosPersona.interesPorJs = interesJs ? "Si" : "No";
 
-
-
-  } else{
+    //javaScriptInput.textContent = interesJs;
+    //console.log(datosPersona);
+  } else {
     return alert("Hasta la próxima");
   }
-
-
 }
 
 function renderizarDatosUsuario() {
-    
   /* ------------------- NO TOCAR NI ELIMINAR ESTA FUNCION. ------------------- */
   //    const usuario = obtenerDatosDelUsuario();
   obtenerDatosDelUsuario();
@@ -199,41 +194,42 @@ function renderizarDatosUsuario() {
 }
 renderizarDatosUsuario();
 
+let btnMateria = false;
+
 function recorrerListadoYRenderizarTarjetas() {
 
+if (btnMateria == true ) {
+  return;
+  
+} 
+  const contenedorMaterias = document.getElementById("fila");
+  contenedorMaterias.textContent = null;
+  listado.forEach((materia) => {
+    const caja = document.createElement("div");
+    caja.classList.add("caja");
 
-    const contenedorMaterias = document.getElementById('fila');
-    contenedorMaterias.textContent = null;
-    listado.forEach((materia) =>{
+    const imagen = document.createElement("img");
+    imagen.setAttribute("src", materia.imgUrl);
+    imagen.setAttribute("alt", materia.lenguajes);
 
-      const caja = document.createElement('div');
-      caja.classList.add('caja');
+    caja.appendChild(imagen);
 
-      const imagen = document.createElement('img');
-      imagen.setAttribute('src', materia.imgUrl);
-      imagen.setAttribute('alt', materia.lenguajes);
+    const pLenguajes = document.createElement("p");
+    pLenguajes.classList.add("lenguajes");
+    pLenguajes.textContent = materia.lenguajes;
 
-      caja.appendChild(imagen);
+    caja.appendChild(pLenguajes);
 
-      const pLenguajes = document.createElement('p');
-      pLenguajes.classList.add('lenguajes');
-      pLenguajes.textContent = materia.lenguajes;
+    const pBimestre = document.createElement("p");
+    pBimestre.classList.add("bimestre");
+    pBimestre.textContent = `Materias del ${materia.bimestre}`;
 
-      caja.appendChild(pLenguajes);
+    caja.appendChild(pBimestre);
 
-      const pBimestre = document.createElement('p');
-      pBimestre.classList.add('bimestre');
-      pBimestre.textContent = `Materias del ${materia.bimestre}`;
-   
-      caja.appendChild(pBimestre);
-
-      contenedorMaterias.appendChild(caja);
-      console.log(contenedorMaterias);
-
-      
-    });
-
-
+    contenedorMaterias.appendChild(caja);
+    console.log(contenedorMaterias);
+    btnMateria = true;
+  });
 
   //     Desarrollar la función que recorra el listado y renderizar una especie de tarjeta con la
   // información de cada materia. Prestar atención, cada una de las clases CSS son
@@ -250,24 +246,19 @@ function recorrerListadoYRenderizarTarjetas() {
   // ◆ Cada ‘caja’ se debe inyectar dentro del contenedor que ya se encuentra
   // en el archivo index.html con el id 'fila'.
   /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
-};
+}
 
 recorrerListadoYRenderizarTarjetas();
 
 function alternarColorTema() {
-
-  
   /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
   document.querySelector("#sitio").classList.toggle("dark");
-  
-
 }
 //alternarColorTema();
 
 // window.addEventListener("keypress", function(){
 //   this.alert("1")
 // })
-
 
 //   Finalmente, agregar un listener en nuestra página que nos permita captar el evento
 // de teclado cuando presionamos la tecla F.
@@ -279,17 +270,15 @@ function alternarColorTema() {
 // por única vez.
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
 
-
 const sobreMi = document.getElementById("sobre-mi");
 
-document.addEventListener("keydown", function(e) {
-    // Verificar si la tecla presionada es la tecla 'F' (código de tecla 70)
-    if (e.code == 'KeyF') {
-      sobreMi.classList.remove("oculto");
-    }
-  });
+document.addEventListener("keydown", function (e) {
+  // Verificar si la tecla presionada es la tecla 'F' (código de tecla 70)
+  if (e.code == "KeyF") {
+    sobreMi.classList.remove("oculto");
+  }
+});
 
-const textSobreMi = document.querySelector('#sobre-mi');
+const textSobreMi = document.querySelector("#sobre-mi");
 
 textSobreMi.textContent = `Soy ${datosPersona.nombre}, estudiante de Digital House y ${datosPersona.interesPorJs} tengo interés en Javascript}`;
-
